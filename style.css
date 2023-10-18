@@ -1,0 +1,11 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Rockwell Extra Bold";
+}
+
+.game{
+    background-image: url("resource/background.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
