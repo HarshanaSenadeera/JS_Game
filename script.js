@@ -5,6 +5,7 @@ const gameArea = document.querySelector('.gameArea');
 const ClickToStart = document.querySelector('.ClickToStart');
 document.addEventListener('keydown', keydown);
 document.addEventListener('keyup', keyup);
+ClickToStart.addEventListener('click', Start);
 
 let keys={
     ArrowUp:false,
@@ -24,4 +25,20 @@ function keydown(e) {
 }
 function keyup(e) {
     keys[e.key] = false;
+}
+
+function Start() {
+
+    gameArea.innerHTML = "";
+    startScreen.classList.add('hide');
+    player.isStart = true;
+    player.score = 0;
+
+    for (let i = 0; i < 5; i++) {
+        let roadLines = document.createElement('div');
+        roadLines.setAttribute('class', 'roadLines');
+        roadLines.y = (i * 140);
+        roadLines.style.top = roadLines.y + "px";
+        gameArea.appendChild(roadLines);
+    }
 }
