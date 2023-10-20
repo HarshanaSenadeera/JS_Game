@@ -44,7 +44,7 @@ function Start() {
         roadLines.style.top = roadLines.y + "px";
         gameArea.appendChild(roadLines);
     }
-// creating the opponents car
+// creating the opponents fire ball
     for (i = 0; i < 3; i++) {
         let Opponents = document.createElement('div');
         Opponents.setAttribute('class', 'Opponents');
@@ -53,25 +53,25 @@ function Start() {
         gameArea.appendChild(Opponents);
         Opponents.style.left = Math.floor(Math.random() * 300) + "px";
     }
-    let car = document.createElement('div');
-    car.setAttribute('class', 'car');
-    gameArea.appendChild(car);
-    player.x = car.offsetLeft;
-    player.y = car.offsetTop;
+    let ball = document.createElement('div');
+    ball.setAttribute('class', 'bike');
+    gameArea.appendChild(ball);
+    player.x = ball.offsetLeft;
+    player.y = ball.offsetTop;
 }
 
 function Play() {
-    let car = document.querySelector('.car');
+    let ball = document.querySelector('.bike');
     let road = gameArea.getBoundingClientRect();
     if (player.isStart) {
         moveLines();
-        moveOpponents(car);
+        moveOpponents(ball);
         if (keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
         if (keys.ArrowDown && player.y < (road.height - 75)) { player.y += player.speed }
         if (keys.ArrowRight && player.x < 350) { player.x += player.speed }
         if (keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
-        car.style.top = player.y + "px";
-        car.style.left = player.x + "px";
+        ball.style.top = player.y + "px";
+        ball.style.left = player.x + "px";
         highScore.innerHTML = "HighScore" + ":" + (player.highScore - 1);
         player.score++;
         player.speed += 0.01;
@@ -122,7 +122,7 @@ function moveOpponents(fire) {
         item.style.top = item.y + "px";
     })
 }
-//check whether the cars collide or not
+//check whether the balls collide or not
 function isCollide(a, b) {
     aRect = a.getBoundingClientRect();
     bRect = b.getBoundingClientRect();
