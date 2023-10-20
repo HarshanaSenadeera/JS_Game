@@ -32,7 +32,7 @@
 
 .Intro{
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-family: "Bodoni MT";
 }
 
@@ -91,7 +91,9 @@
     color: rgb(59, 40, 40);
     line-height: 40px;
     border-radius: 4px;
-    font-size: 1.2em;
+    font-size: 20px;
+    font-weight: bold;
+
 }
 
 .level{
@@ -104,5 +106,6 @@
     color: rgb(59, 40, 40);
     line-height: 40px;
     border-radius: 4px;
-    font-size: 1.2em;
+    font-size: 20px;
+    font-weight: bold;
 }

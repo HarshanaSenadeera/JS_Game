@@ -53,36 +53,36 @@ function Start() {
         gameArea.appendChild(Opponents);
         Opponents.style.left = Math.floor(Math.random() * 300) + "px";
     }
-    let ball = document.createElement('div');
-    ball.setAttribute('class', 'bike');
-    gameArea.appendChild(ball);
-    player.x = ball.offsetLeft;
-    player.y = ball.offsetTop;
+    let bike = document.createElement('div');
+    bike.setAttribute('class', 'bike');
+    gameArea.appendChild(bike);
+    player.x = bike.offsetLeft;
+    player.y = bike.offsetTop;
 }
 
 function Play() {
-    let ball = document.querySelector('.bike');
+    let bike = document.querySelector('.bike');
     let road = gameArea.getBoundingClientRect();
     if (player.isStart) {
         moveLines();
-        moveOpponents(ball);
+        moveOpponents(bike);
         if (keys.ArrowUp && player.y > (road.top + 70)) { player.y -= player.speed }
         if (keys.ArrowDown && player.y < (road.height - 75)) { player.y += player.speed }
         if (keys.ArrowRight && player.x < 350) { player.x += player.speed }
         if (keys.ArrowLeft && player.x > 0) { player.x -= player.speed }
-        ball.style.top = player.y + "px";
-        ball.style.left = player.x + "px";
-        highScore.innerHTML = "HighScore" + ":" + (player.highScore - 1);
+        bike.style.top = player.y + "px";
+        bike.style.left = player.x + "px";
+        highScore.innerHTML = "HighScore" + ":" + (player.highScore + 1);
         player.score++;
         player.speed += 0.01;
         if (player.highScore < player.score) {
             player.highScore++;
-            highScore.innerHTML = "HighScore" + ":" + (player.highScore - 1);
+            highScore.innerHTML = "HighScore" + ":" + (player.highScore + 1);
             highScore.style.top="80px";
         }
 
 
-        score.innerHTML = "Score" + ":" + (player.score - 1);
+        score.innerHTML = "Score" + ":" + (player.score + 1);
         window.requestAnimationFrame(Play);
 
         if(player.score> 500){
